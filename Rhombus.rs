@@ -1,30 +1,11 @@
-use std::io;
-
+const N: usize = 5;
 fn main() {
-	let mut input = String::new();
-	println!("Введіть кількість рядків:");
-    
-	io::stdin().read_line(&mut input).expect("Неправильно введено");
-    
-	let n: usize = input.trim().parse().expect("Введіть число");
-
-	for i in 0..n {
-    	for _ in 0..(n - i - 1) {
-        	print!(" ");
-    	}
-    	for _ in 0..(2 * i + 1) {
-        	print!("*");
-    	}
-    	println!();
-	}
-
-	for i in (0..n-1).rev() {
-    	for _ in 0..(n - i - 1) {
-        	print!(" ");
-    	}
-    	for _ in 0..(2 * i + 1) {
-        	print!("*");
-    	}
-    	println!();
-	}
+    let mut diamond = String::new();
+    for i in 0..(2 * N - 1) {
+        let row = if i < N { i } else { 2 * N - 2 - i };
+        diamond.push_str(&" ".repeat(N - 1 - row));
+        diamond.push_str(&"".repeat(2 row + 1));
+        diamond.push('\n');
+    }
+    print!("{}", diamond);
 }
