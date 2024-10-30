@@ -54,6 +54,6 @@ fn print_vector_with_min_sum(data: &[i32]) {
 }
 
 fn main() {
-    let data = gen_random_vector(35);
+    let data = gen_random_vector(35); //ввод чисел
     print_vector_with_min_sum(&data);
 }
